@@ -30,7 +30,7 @@ class HabitListAPIView(generics.ListAPIView):
 class MyHabitListAPIView(generics.ListAPIView):
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
-    permission_classes = [UserHabitPermissionManager]
+    permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
         assert self.queryset is not None, (

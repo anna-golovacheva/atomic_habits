@@ -9,21 +9,26 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
 import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env_path = BASE_DIR / '.env'
+load_dotenv(dotenv_path=env_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hhxmy=5*rw+&vfm&%eo_x3seqhhp#@)xha@*8zh7!%u5pla0(e'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -87,7 +92,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5433',
         'USER': 'postgres',
-        'PASSWORD': '12345'
+        'PASSWORD': os.getenv('DATABASE_PASSWORD')
     }
 }
 
@@ -162,4 +167,4 @@ SIMPLE_JWT = {
 
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 
-BOT_TOKEN = '6196823232:AAE-vKS12G5WzMZLI2ZHfbI0n3DmrfG-0zk'
+BOT_TOKEN = os.getenv('BOT_TOKEN')
