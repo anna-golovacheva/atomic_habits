@@ -39,7 +39,6 @@ class User(AbstractUser):
     token_expired = models.DateTimeField(**NULLABLE)
     telegram_id = models.CharField(max_length=15, **NULLABLE, verbose_name='id в телеграм')
 
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()

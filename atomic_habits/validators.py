@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from atomic_habits.models import Habit
 
 
@@ -25,4 +24,3 @@ class CheckTimeValidator:
         if time:
             if time > 120:
                 raise serializers.ValidationError('Время выполнения не может быть больше 120 секунд')
-

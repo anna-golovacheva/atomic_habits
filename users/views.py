@@ -4,7 +4,6 @@ from rest_framework.response import Response
 
 from users.models import User
 from users.permissions import UserRetrievePermissionManager
-# from users.permissions import UserChangeUserPermissionManager
 from users.serializers import UserSerializer, RegisterSerializer
 
 

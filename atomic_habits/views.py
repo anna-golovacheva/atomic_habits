@@ -6,8 +6,6 @@ from atomic_habits.models import Habit
 from atomic_habits.permissions import UserHabitPermissionManager
 from atomic_habits.serializers import HabitSerializer
 
-from atomic_habits.tasks import send_notifications
-
 
 class HabitListAPIView(generics.ListAPIView):
     serializer_class = HabitSerializer
